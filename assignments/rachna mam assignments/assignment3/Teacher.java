@@ -1,4 +1,4 @@
-package assisment;
+package assignment3;
 
 public class Teacher extends Person {
     String subject;

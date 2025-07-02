@@ -1,4 +1,4 @@
-package assisment;
+package assignment3;
 
 public class Student extends Person {
     String studentId;

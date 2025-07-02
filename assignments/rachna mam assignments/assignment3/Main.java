@@ -1,4 +1,4 @@
-package assisment;
+package assignment3;
 
 public class Main {
 //    create objects ofd each classes invoke and test methods that are available in each class

@@ -1,4 +1,4 @@
 package librarymanagmentsystem;
 
-public class Student {
+public class    Student {
 }
