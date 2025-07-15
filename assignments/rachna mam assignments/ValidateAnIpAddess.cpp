@@ -5,7 +5,7 @@ using namespace std;
 int main() {
     string ip;
     cin >> ip;
-    vector<std::string> parts;
+    vector<string> parts;
     stringstream ss(ip);
     bool x = true;
     string item;
@@ -26,3 +26,5 @@ int main() {
     
     return 0;
 }
+
+// wap to reduce a string using 

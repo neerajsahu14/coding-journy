@@ -60,6 +60,9 @@
     "deque": "cpp",
     "list": "cpp",
     "vector": "cpp",
-    "xstring": "cpp"
+    "xstring": "cpp",
+    "ostream": "cpp",
+    "unordered_map": "cpp",
+    "set": "cpp"
   }
 }
