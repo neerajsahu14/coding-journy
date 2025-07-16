@@ -29,6 +29,28 @@ select name from employees where salary > (select avg(salary) from employees);
 select name from products where price = (select max(price) from products);
 
 -- 11. select all customers who never placed any order
-select name from customers where customer_id <> (select custumer_id form order);
+select name from customers where
+customer_id != (select custumer_id form order group by customer_id);
+select name form customers c left join order o on c.customer_id = o.customer_id where o.customer_id is null;
+select name from customers not in(select custumer from order);
 
--- find employees who belong to the department 
+-- 12. find employees who belong to the department with minimum total salary paid
+select name from employee 
+group by department_id =
+ (select department_id from employee group by department_id order by sum(salary) limit 1);
+
+-- 13. display employeeId, name, and numbers olf year they have worked(use current date)
+select id, name, DATEDIFF(current_date,joining_date)/365 form employee;
+
+-- 14. fingf custumers whose name starts with 'A' and end with 'n'
+select * from coustumers where name like "A%n";
+
+-- 15. display total sales amount for each product 
+select product_name, amount from sales where sales_date ='2025-07-01';
+select product_name, sum(amount) from sales where sales_date = '2025-07-01' group by product_name;
+
+-- 16. show the maximum,minimum and avg amount of all orders
+select avg(amount), minimum(amount),max(amount) form order;
+
+-- 17. diplay the names of product sold more then 50 times(use Sales table)
+select product_name form sales order by product_name having count(*) > 50;

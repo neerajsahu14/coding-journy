@@ -63,6 +63,8 @@
     "xstring": "cpp",
     "ostream": "cpp",
     "unordered_map": "cpp",
-    "set": "cpp"
+    "set": "cpp",
+    "system_error": "cpp",
+    "xlocale": "cpp"
   }
 }
