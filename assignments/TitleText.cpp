@@ -1,20 +1,29 @@
 #include <iostream>
 #include <cctype>
+#include <sstream>
 using namespace std;
 
-string toTitleCase(const string& text) {
-    string result = text;
-    bool capitalize = true;
+string toTitleCaseSmart(const string& text) {
+    stringstream ss(text);
+    string word, result;
 
-    for (int i = 0; i < result.size(); i++) {
-        if (isspace(result[i])) {
-            capitalize = true;
-        } else if (capitalize && isalpha(result[i])) {
-            result[i] = toupper(result[i]);
-            capitalize = false;
-        } else {
-            result[i] = tolower(result[i]);
+    while (ss >> word) {
+        bool isAllUpper = true;
+        for (char ch : word) {
+            if (!isupper(ch)) {
+                isAllUpper = false;
+                break;
+            }
         }
+
+        if (!isAllUpper) {
+            word[0] = toupper(word[0]);
+            for (int i = 1; i < word.length(); ++i)
+                word[i] = tolower(word[i]);
+        }
+
+        if (!result.empty()) result += " ";
+        result += word;
     }
 
     return result;
@@ -24,7 +33,7 @@ int main() {
     string input;
     getline(cin, input);
 
-    string titleText = toTitleCase(input);
+    string titleText = toTitleCaseSmart(input);
     cout << titleText << endl;
 
     return 0;
