@@ -54,3 +54,35 @@ select avg(amount), minimum(amount),max(amount) form order;
 
 -- 17. diplay the names of product sold more then 50 times(use Sales table)
 select product_name form sales order by product_name having count(*) > 50;
+
+-- 18. display the employees who have salary more then average salary.
+select * from employee where salary > (select)
+
+-- find the highest paid employee from each department
+SELECT *
+FROM employees
+WHERE (department_id, salary) IN (
+    SELECT department_id, MAX(salary)
+    FROM employees
+    GROUP BY department_id
+);
+
+--  find the second highest salary in the employee table.
+
+select * FROM employee salary IN (select salary from order by Desc limit 2 offset 1);
+
+--  find the thirth highest salary in the employee table.
+
+select * FROM employee salary IN (select salary from order by Desc limit 3 offset 2);
+
+-- display employees whose salary  is greater then salary 'Amit'
+select * from employee salary > (select salary from employee where name in 'Amit');
+
+--  display emplioyees whose department located in 'delhi'.
+select * 
+from employee 
+where department_id IN (
+    select department_id from employee
+    where localtion = 'Delhi' group by department_id);
+
+select * department
